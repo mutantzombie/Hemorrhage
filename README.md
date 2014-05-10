@@ -73,7 +73,7 @@ Generate Traffic
 Maybe you'll find more interesting content if the target is handling more connections.
 
 ````
-$ while [ 1 ]; do curl --insecure https://10.0.1.15/ ; done
+$ while [ 1 ]; do curl --insecure https://web.site/ ; done
 ````
 
 Example Certificate
