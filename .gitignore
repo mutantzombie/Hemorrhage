@@ -1,3 +1,11 @@
+*.plist
+*.swp
+.DS_Store
+err
+hemoglo.bin
+hemorrhage
+hemorrhage.dSYM
+
 # Compiled Object files
 *.slo
 *.lo
