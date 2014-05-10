@@ -1,9 +1,9 @@
 Hemorrhage
-=====
+==========
 
 (c) 2014 Mike Shema, [@CodexWebSecurum](https://twitter.com/CodexWebSecurum)
 
-[http://deadliestwebattacks.com]()
+[http://deadliestwebattacks.com/2014/05/09/a-monstrous-confluence/]()
 
 Demonstrate the OpenSSL ["Heartbleed"](https://www.heartbleed.com/) vulnerability.
 
@@ -16,37 +16,43 @@ Use heartbleed as an excuse to experiment with C++11 and the Boost.ASIO library.
 Compilation
 ---
 Prerequisites:
- * Boost installation ([http://www.boost.org]()).
- * OpenSSL 1.0.1f ([http://www.openssl.org]()).
+
+ * Boost installation ([http://www.boost.org/]()).
+ * OpenSSL 1.0.1f ([http://www.openssl.org/]()).
 
 Edit the Makefile's BOOSTDIR and OPENSSLDIR path to match your environment.
+
 ````
 $ make
 ````
+
 If you wish to try to Boost.ASIO version, then use the asio target.
+
 ````
 $ make asio
 ````
 
-Only tested on Mac OS X. Should compile on Linux without issue. Windows will need some OpenSSL wrangling.
-When using boost::asio::ssl, OpenSSL cannot be compiled with '-DOPENSSL_NO_DEPRECATED'. Otherwise, you'll receive an undefined symbols error for '_CRYPTO_set_id_callback' and '_ERR_remove_state' at link time.
+Only tested on Mac OS X. Should compile on any Unix-based system without issue. Windows will need some OpenSSL wrangling.
+
+When using boost::asio::ssl, OpenSSL cannot be compiled with ````-DOPENSSL_NO_DEPRECATED````. Otherwise, you'll receive an undefined symbols error for ````_CRYPTO_set_id_callback```` and ````_ERR_remove_state```` at link time.
 
 Collect Data
 ---
 Note that you may have to adjust your LD_LIBRARY_PATH for hemorrhage to find the OpenSSL and Boost.System libraries at run-time.
 On Mac OS X you'll need to set the DYLD_LIBRARY_PATH.
+
 ````
 $ ./hemorrhage web.site | tee err
 $ DYLD_LIBRARY_PATH=/opt/boost/libc++/lib/ ./hemorrhage web.site | tee err
 ````
 
-Alternate port
+Use an alternate port.
 
 ````
 $ ./hemorrhage web.site 8443 | tee err
 ````
 
-Loop
+Loop against the target.
 
 ````
 $ while [ 1 ]; do ./hemorrhage web.site | tee -a err; done
@@ -55,16 +61,19 @@ $ while [ 1 ]; do ./hemorrhage web.site | tee -a err; done
 Review Output
 ---
 Hemorrhage saves incoming heartbeat traffic to a hemoglo.bin file. This file will always be appended to. Delete it if you wish to start afresh.
+
 ````
 $ strings hemoglo.bin | sort -u | tee words.txt
 $ xxd hemoglo.bin
 ````
 
 
-Generate traffic
+Generate Traffic
 ---
+Maybe you'll find more interesting content if the target is handling more connections.
+
 ````
-$ while [ 1 ]; do curl --insecure https://10.0.1.15 ; done
+$ while [ 1 ]; do curl --insecure https://10.0.1.15/ ; done
 ````
 
 Example Certificate
@@ -123,8 +132,12 @@ x0rDaFNd8i45Yow3Q7p5oGTiIIwCIr+73PUg07h71Q==
 Other Resources
 ---
 [cloudflare_challenge notes by epixoip](https://gist.github.com/epixoip/10570627).
+
 [heartleech](https://github.com/robertdavidgraham/heartleech) tool.
+
 [Metasploit](http://www.metasploit.com) examples for [server](http://www.rapid7.com/db/modules/auxiliary/scanner/ssl/openssl_heartbleed) and [client](http://www.rapid7.com/db/modules/auxiliary/server/openssl_heartbeat_client_memory). These include additional background references.
+
 [Nmap's](http://nmap.org/download.html) [ssl-heartbleed.nse](https://svn.nmap.org/nmap/scripts/ssl-heartbleed.nse) script.
+
 [SSL Pulse](https://www.trustworthyinternet.org/ssl-pulse/) regarding public SSL/TLS web sites.
 
