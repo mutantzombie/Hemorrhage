@@ -3,7 +3,7 @@ Hemorrhage
 
 (c) 2014 Mike Shema, [@CodexWebSecurum](https://twitter.com/CodexWebSecurum)
 
-[http://deadliestwebattacks.com/2014/05/09/a-monstrous-confluence/]()
+[A Monstrous Confluence](https://deadliestwebattacks.com/2014/05/09/a-monstrous-confluence/)
 
 Demonstrate the OpenSSL ["Heartbleed"](https://www.heartbleed.com/) vulnerability.
 
@@ -17,8 +17,8 @@ Compilation
 ---
 Prerequisites:
 
- * Boost installation ([http://www.boost.org/]()).
- * OpenSSL 1.0.1f ([http://www.openssl.org/]()).
+ * Boost installation (http://www.boost.org/).
+ * OpenSSL 1.0.1f [http://www.openssl.org/).
 
 Edit the Makefile's BOOSTDIR and OPENSSLDIR path to match your environment.
 
