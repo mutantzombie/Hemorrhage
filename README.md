@@ -1,7 +1,7 @@
 Hemorrhage
 ==========
 
-(c) 2014 Mike Shema, [@CodexWebSecurum](https://twitter.com/CodexWebSecurum)
+(c) 2014 Mike Shema, [@Codexatron](https://twitter.com/Codexatron)
 
 [A Monstrous Confluence](https://deadliestwebattacks.com/2014/05/09/a-monstrous-confluence/)
 
