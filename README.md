@@ -3,7 +3,7 @@ Hemorrhage
 
 (c) 2014 Mike Shema, [@Codexatron](https://twitter.com/Codexatron)
 
-[A Monstrous Confluence](https://deadliestwebattacks.com/2014/05/09/a-monstrous-confluence/)
+[A Monstrous Confluence](https://deadliestwebattacks.com/archive/2014-05-10-a-monstrous-confluence)
 
 Demonstrate the OpenSSL ["Heartbleed"](https://www.heartbleed.com/) vulnerability.
 
