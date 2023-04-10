@@ -3,9 +3,9 @@ Hemorrhage
 
 (c) 2014 Mike Shema, [@Codexatron](https://twitter.com/Codexatron)
 
-[A Monstrous Confluence](https://deadliestwebattacks.com/archive/2014-05-10-a-monstrous-confluence)
+Read the accompanying blog post, ["A Monstrous Confluence"](https://deadliestwebattacks.com/appsec/2014/05/10/a-monstrous-confluence).
 
-Demonstrate the OpenSSL ["Heartbleed"](https://www.heartbleed.com/) vulnerability.
+Demonstrate the OpenSSL [Heartbleed](https://www.heartbleed.com/) vuln.
 
 Refer to LICENSE file for license information.
 
@@ -17,16 +17,16 @@ Compilation
 ---
 Prerequisites:
 
- * Boost installation (http://www.boost.org/).
- * OpenSSL 1.0.1f [http://www.openssl.org/).
+ * Boost, http://www.boost.org/
+ * OpenSSL [1.0.1f](https://www.openssl.org/source/old/1.0.1/openssl-1.0.1f.tar.gz), http://www.openssl.org/
 
-Edit the Makefile's BOOSTDIR and OPENSSLDIR path to match your environment.
+Edit the Makefile's `BOOSTDIR` and `OPENSSLDIR` paths to match your environment.
 
 ````
 $ make
 ````
 
-If you wish to try to Boost.ASIO version, then use the asio target.
+If you wish to try to Boost.ASIO version, then use the `asio` target.
 
 ````
 $ make asio
@@ -38,8 +38,8 @@ When using boost::asio::ssl, OpenSSL cannot be compiled with ````-DOPENSSL_NO_DE
 
 Collect Data
 ---
-Note that you may have to adjust your LD_LIBRARY_PATH for hemorrhage to find the OpenSSL and Boost.System libraries at run-time.
-On Mac OS X you'll need to set the DYLD_LIBRARY_PATH.
+Note that you may have to adjust your `LD_LIBRARY_PATH` for hemorrhage to find the OpenSSL and Boost.System libraries at run-time.
+On Mac OS X you'll need to set the `DYLD_LIBRARY_PATH`.
 
 ````
 $ ./hemorrhage web.site | tee err
@@ -78,7 +78,7 @@ $ while [ 1 ]; do curl --insecure https://web.site/ ; done
 
 Example Certificate
 ---
-If you're searching for private key information, you'll be looking for items like prime1 and prime2.
+If you're searching for private key information, you'll be looking for items like `prime1` and `prime2`.
 
 ````
 $ openssl rsa -text -modulus -in example.key
@@ -131,13 +131,13 @@ x0rDaFNd8i45Yow3Q7p5oGTiIIwCIr+73PUg07h71Q==
 
 Other Resources
 ---
-[cloudflare_challenge notes by epixoip](https://gist.github.com/epixoip/10570627).
+[cloudflare_challenge notes by epixoip](https://gist.github.com/epixoip/10570627)
 
-[heartleech](https://github.com/robertdavidgraham/heartleech) tool.
+[heartleech](https://github.com/robertdavidgraham/heartleech) tool
 
 [Metasploit](http://www.metasploit.com) examples for [server](http://www.rapid7.com/db/modules/auxiliary/scanner/ssl/openssl_heartbleed) and [client](http://www.rapid7.com/db/modules/auxiliary/server/openssl_heartbeat_client_memory). These include additional background references.
 
-[Nmap's](http://nmap.org/download.html) [ssl-heartbleed.nse](https://svn.nmap.org/nmap/scripts/ssl-heartbleed.nse) script.
+[Nmap's](http://nmap.org/download.html) [ssl-heartbleed.nse](https://svn.nmap.org/nmap/scripts/ssl-heartbleed.nse) script
 
-[SSL Pulse](https://www.trustworthyinternet.org/ssl-pulse/) regarding public SSL/TLS web sites.
+[SSL Pulse](https://web.archive.org/web/20140810202015/https://www.trustworthyinternet.org/ssl-pulse/) regarding the configurations of public SSL/TLS web sites. You may have to click the `Previous` button on that archive link a few times to see the status from April 5, 2014. At the time, only ~30% of surveyed sites supported TLS 1.1 and ~32% supported TLS 1.2. HSTS, which was barely two years old by this time, appeared on only 1% of surveyed sites. Secure deployments were already lagging before Heartbleed appeared.
 
