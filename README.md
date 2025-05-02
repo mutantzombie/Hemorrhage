@@ -1,9 +1,9 @@
 Hemorrhage
 ==========
 
-(c) 2014 Mike Shema, [@Codexatron](https://twitter.com/Codexatron)
+(c) Mike Shema, [@mutantzombie.bsky.social](https://bsky.app/profile/mutantzombie.bsky.social)
 
-Read the accompanying blog post, ["A Monstrous Confluence"](https://deadliestwebattacks.com/appsec/2014/05/10/a-monstrous-confluence).
+Read the accompanying blog post, ["A Monstrous Confluence"](https://dangerouserrors.com/appsec/2014/05/10/a-monstrous-confluence).
 
 Demonstrate the OpenSSL [Heartbleed](https://www.heartbleed.com/) vuln.
 
@@ -17,8 +17,8 @@ Compilation
 ---
 Prerequisites:
 
- * Boost, http://www.boost.org/
- * OpenSSL [1.0.1f](https://www.openssl.org/source/old/1.0.1/openssl-1.0.1f.tar.gz), http://www.openssl.org/
+ * Boost, https://www.boost.org/
+ * OpenSSL [1.0.1f](https://www.openssl.org/source/old/1.0.1/openssl-1.0.1f.tar.gz), https://www.openssl.org/
 
 Edit the Makefile's `BOOSTDIR` and `OPENSSLDIR` paths to match your environment.
 
@@ -39,6 +39,7 @@ When using boost::asio::ssl, OpenSSL cannot be compiled with ````-DOPENSSL_NO_DE
 Collect Data
 ---
 Note that you may have to adjust your `LD_LIBRARY_PATH` for hemorrhage to find the OpenSSL and Boost.System libraries at run-time.
+
 On Mac OS X you'll need to set the `DYLD_LIBRARY_PATH`.
 
 ````
@@ -135,9 +136,8 @@ Other Resources
 
 [heartleech](https://github.com/robertdavidgraham/heartleech) tool
 
-[Metasploit](http://www.metasploit.com) examples for [server](http://www.rapid7.com/db/modules/auxiliary/scanner/ssl/openssl_heartbleed) and [client](http://www.rapid7.com/db/modules/auxiliary/server/openssl_heartbeat_client_memory). These include additional background references.
+[Metasploit](https://www.metasploit.com) examples for [server](https://www.rapid7.com/db/modules/auxiliary/scanner/ssl/openssl_heartbleed) and [client](https://www.rapid7.com/db/modules/auxiliary/server/openssl_heartbeat_client_memory). These include additional background references.
 
-[Nmap's](http://nmap.org/download.html) [ssl-heartbleed.nse](https://svn.nmap.org/nmap/scripts/ssl-heartbleed.nse) script
+[Nmap's](https://nmap.org/download.html) [ssl-heartbleed.nse](https://svn.nmap.org/nmap/scripts/ssl-heartbleed.nse) script
 
 [SSL Pulse](https://web.archive.org/web/20140810202015/https://www.trustworthyinternet.org/ssl-pulse/) regarding the configurations of public SSL/TLS web sites. You may have to click the `Previous` button on that archive link a few times to see the status from April 5, 2014. At the time, only ~30% of surveyed sites supported TLS 1.1 and ~32% supported TLS 1.2. HSTS, which was barely two years old by this time, appeared on only 1% of surveyed sites. Secure deployments were already lagging before Heartbleed appeared.
-
